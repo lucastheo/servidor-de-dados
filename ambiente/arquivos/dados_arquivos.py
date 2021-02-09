@@ -18,6 +18,7 @@ class ArquivoServidor:
         self.erros_arquivos_file      = ArquivosVariaveis.path.erros_arquivos_file    
         self.logs_geral               = ArquivosVariaveis.path.logs_geral              
         self.logs_geral_file          = ArquivosVariaveis.path.logs_geral_file  
+        self.codigos                  = ArquivosVariaveis.path.codigos
 
     def prepara( self ):
         if not os.path.exists( self.arquivos                 ):
@@ -42,3 +43,5 @@ class ArquivoServidor:
             os.makedirs(self.logs_geral              )
         if not os.path.exists( self.logs_geral_file          ):
             open(self.erros_arquivos_file , "w").write("")
+        if not os.path.exists( self.codigos                  ):
+            os.makedirs(self.codigos                 )

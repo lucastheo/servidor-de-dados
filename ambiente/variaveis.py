@@ -6,7 +6,7 @@ import os
 
 class ServidorMensagemVariaveis:
     class path:
-        base = os.getcwd() + "/ambiente/servidor-mensagem/"
+        base = os.getcwd() + "/ambiente/servidor_mensagem/arquivos/"
     class url:
         sqm_jar = "https://smq-jar.s3-sa-east-1.amazonaws.com/0.0.0/demo-0.0.1-SNAPSHOT.jar"
         sqm_config = "https://smq-jar.s3-sa-east-1.amazonaws.com/0.0.0/configuracoes_servidor.json"
@@ -24,5 +24,6 @@ class ArquivosVariaveis:
         erros_arquivos_file         = os.getcwd() + "/dados/erros/arquivos/arquivos-tempo"
         logs_geral                  = os.getcwd() + "/dados/logs/"
         logs_geral_file             = os.getcwd() + "/dados/logs/geral"
+        codigos                     = os.getcwd() + "/codigos/"
 
         
