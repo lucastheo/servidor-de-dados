@@ -132,3 +132,4 @@ ambiente/servidor-mensagem/configuracoes_servidor.json
 dados/*
 .vscode/launch.json
 ambiente/servidor_mensagem/arquivos/demo-0.0.1-SNAPSHOT.jar
+ambiente/servidor_mensagem/arquivos/configuracoes_servidor.json

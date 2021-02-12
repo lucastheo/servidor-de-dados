@@ -22,12 +22,18 @@ def execute():
     
     for forma in lista_forma_executar:
         if forma['tipo'] == 'ConsumidoresFila':
-            execute_direto(forma['codigo'])
+            for _ in range(forma['quantidade']):
+                execute_direto(forma)
+        elif forma['tipo'] == 'ProgramadosBatch':
+            executa_batch(forma)
     
 
 
-def execute_direto( comando ):
-    Processos.iniciar( comando )
+def execute_direto( forma ):
+    Processos.iniciar_direto( forma['codigo'] )
+
+def executa_batch( forma ):
+    Processos.iniciar_batch( forma['codigo']  , forma['tempo'] )
 
 def comando(file_path:str)->list:
     comandos = list()
@@ -38,7 +44,7 @@ def comando(file_path:str)->list:
             elif ProgramadosFixo.pertence( line ):
                 comandos.append( line )
             elif ProgramadosBatch.pertence( line ):
-                comandos.append( line )
+                comandos.append( ProgramadosBatch.codigo_execucao( line ) )
     
     for i , comando in enumerate( comandos ):
         if '{esse-arquivo}' in comando['codigo']:

@@ -8,7 +8,7 @@ class ProgramadosFixo:
     def codigo_execucao( string ):
         var = {'tipo':'ConsumidoresFila',
                'pre-codigo':re.sub(ProgramadosFixo.RE_IDENTIFICADO, '', string ),
-               'codigo':None
+               'codigo':RuntimeError("Erro ao gerar o código")
         }
         return var
         
