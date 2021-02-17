@@ -21,7 +21,7 @@ def execute():
                 lista_forma_executar.extend( comando( dir_path + '/' + file_name ) )
     
     for forma in lista_forma_executar:
-        if forma['tipo'] == 'ConsumidoresFila':
+        if forma['tipo'] == 'ExecucaoDireta':
             for _ in range(forma['quantidade']):
                 execute_direto(forma)
         elif forma['tipo'] == 'ProgramadosBatch':

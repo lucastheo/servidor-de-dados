@@ -1,13 +1,13 @@
 import re
 
 class ExecucaoDireta:
-    RE_IDENTIFICADO = re.compile(r"#consumidor_fila [0-9]+ ")
+    RE_IDENTIFICADO = re.compile(r"#execucao_direta [0-9]+ ")
     @staticmethod
     def pertence(  string ):
         return len( re.findall(ExecucaoDireta.RE_IDENTIFICADO , string ) ) > 0
     @staticmethod
     def codigo_execucao( string ):
-        var = {'tipo'      :'ConsumidoresFila',
+        var = {'tipo'      :'ExecucaoDireta',
                'pre-codigo' :string,
                'codigo'     :re.sub(ExecucaoDireta.RE_IDENTIFICADO, '', string ),
                'quantidade' :ExecucaoDireta.gera_quantidade(string)}

@@ -1,4 +1,4 @@
-#consumidor_fila 1 python3 {esse-arquivo}
-#programado_batch 0 python3 {esse-arquivo}
+#execucao_direta 1 python3 {esse-arquivo}
+#programado_batch 1 python3 {esse-arquivo}
 
 print("INICIO")
