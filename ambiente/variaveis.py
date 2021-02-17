@@ -2,7 +2,7 @@
 Não devem ser usadas em todo código, somente em init ou definicoes
 """
 
-import os
+import os,re
 
 class ServidorMensagemVariaveis:
     class path:
@@ -26,4 +26,17 @@ class ArquivosVariaveis:
         logs_geral_file             = os.getcwd() + "/dados/logs/geral"
         codigos                     = os.getcwd() + "/codigos/"
 
-        
+class IgnorarEsseArquivo:
+    def __init__( self ):
+        self._le_arquivo = list( self.__le_arquivo() )
+    def __le_arquivo(self):
+        for line in open( "./ambiente/ignorar_arquivo_na_execucao", "r"):
+             yield re.compile( line )
+    def execute( self , string ):
+        for r in self._le_arquivo:
+            if len( re.findall(r , string ) ) > 0:
+                return True
+        return False
+
+
+    

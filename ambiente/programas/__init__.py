@@ -10,15 +10,18 @@ from ambiente.programas.execucao_direta import ExecucaoDireta
 from ambiente.programas.programados_fixo import ProgramadosFixo
 from ambiente.programas.programados_batch import ProgramadosBatch
 from ambiente.processos import Processos
+from ambiente.variaveis import IgnorarEsseArquivo
 
 def execute():
+    ignorar_esse_arquivo = IgnorarEsseArquivo()
     path_codigos = ArquivosVariaveis.path.codigos
 
     lista_forma_executar = list()
     for dir_path ,_, file_names  in os.walk(path_codigos):
         if len( file_names ) > 0:
             for file_name in file_names:
-                lista_forma_executar.extend( comando( dir_path + '/' + file_name ) )
+                if not ignorar_esse_arquivo.execute( file_name ):
+                    lista_forma_executar.extend( comando( dir_path + '/' + file_name ) )
     
     for forma in lista_forma_executar:
         if forma['tipo'] == 'ExecucaoDireta':
